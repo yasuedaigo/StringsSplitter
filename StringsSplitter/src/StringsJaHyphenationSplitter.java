@@ -5,7 +5,7 @@ import java.util.List;
 public class StringsJaHyphenationSplitter {
 
     private static final int FIRST_INDEX = 0;
-    private static final List<String> PUNCTUATION = new ArrayList(Arrays.asList("、","。"));
+    private static final List<String> PUNCTUATION = new ArrayList<>(Arrays.asList("、","。"));
 
     public static void execution(){
         List<String> lines =

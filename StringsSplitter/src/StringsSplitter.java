@@ -8,17 +8,17 @@ public class StringsSplitter {
     private static final int CODE_NUMBER = 2;
     private static final int NO_CONTAIN_CODE = -1;
     private static final int FIRST_INDEX = 0;
-    public static void main(String[] args){
-        StringsJaHyphenationSplitter.execution();
-        /*StringsFixedLengthSplitter.execution();
-        StringsMoreSplitter.execution();
 
+    public static void main(String[] args){
         List<String> lines = splitWithLineBreakCode(  
             "１行目。¥n２行目。¥n３行目。¥n４行目。¥n¥n５行目¥n"
         );
         for (String line : lines) {  
             System.out.println(line);
-        }*/
+        }
+        StringsMoreSplitter.execution();
+        StringsFixedLengthSplitter.execution();
+        StringsJaHyphenationSplitter.execution();
     }
 
     public static List<String> splitWithLineBreakCode(String text){
