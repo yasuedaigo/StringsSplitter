@@ -16,7 +16,7 @@ public class StringsMoreSplitter {
         }
     }
 
-    private static String processing(String text){
+    public static String processing(String text){
         StringBuilder buildedText = new StringBuilder(text);
         insertLBCodeAfterCode(buildedText,PERIOD);
         return buildedText.toString();

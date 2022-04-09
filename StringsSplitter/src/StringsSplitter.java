@@ -9,6 +9,8 @@ public class StringsSplitter {
     private static final int NO_CONTAIN_CODE = -1;
     private static final int FIRST_INDEX = 0;
     public static void main(String[] args){
+        StringsJaHyphenationSplitter.execution();
+        /*StringsFixedLengthSplitter.execution();
         StringsMoreSplitter.execution();
 
         List<String> lines = splitWithLineBreakCode(  
@@ -16,7 +18,7 @@ public class StringsSplitter {
         );
         for (String line : lines) {  
             System.out.println(line);
-        }
+        }*/
     }
 
     public static List<String> splitWithLineBreakCode(String text){
@@ -35,8 +37,6 @@ public class StringsSplitter {
         }
         return lines;
     }
-
-    
 
     private static void deleteFarstLBCode(StringBuilder sb) {
         sb.delete(FIRST_INDEX,CODE_NUMBER);
@@ -66,6 +66,11 @@ public class StringsSplitter {
             return true;
         }
         return false;
+    }
+
+    public static boolean isBlank(String text){
+        StringBuilder sb = new StringBuilder(text);
+        return isBlank(sb);
     }
 
     public static boolean isContain(StringBuilder sb,String code){
