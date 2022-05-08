@@ -5,7 +5,6 @@ public class StringsMoreSplitter {
     private static final String LB_CODE = "¥n";
     private static final String PERIOD_AND_LB_CODE = "。¥n";
     private static final String PERIOD = "。";
-    private static final int NO_CONTAIN_CODE = -1;
     private static final int FIRST_INDEX = 0;
 
     public static void execution() {
@@ -22,14 +21,14 @@ public class StringsMoreSplitter {
         return buildedText.toString();
     }
 
-    private static void insertLBCodeAfterCode(StringBuilder sb, String targetText) {
-        int checkIndex = FIRST_INDEX;
-        while (isContainPeriodAfterIndex(sb, checkIndex)) {
-            int periodIndex = sb.indexOf(targetText, checkIndex);
+    private static void insertLBCodeAfterCode(StringBuilder sb, String targetCode) {
+        int currentIndex = FIRST_INDEX;
+        while (isContainPeriodAfterIndex(sb, currentIndex)) {
+            int periodIndex = sb.indexOf(targetCode, currentIndex);
             if (!isPeriodAndLBCode(sb, periodIndex)) {
                 addLBCodeAfterPeriod(sb, periodIndex);
             }
-            checkIndex = periodIndex + 1;
+            currentIndex = periodIndex + 1;
         }
     }
 
@@ -39,7 +38,7 @@ public class StringsMoreSplitter {
     }
 
     private static boolean isContainPeriodAfterIndex(StringBuilder sb, int Index) {
-        return sb.indexOf(PERIOD, Index) != NO_CONTAIN_CODE;
+        return sb.indexOf(PERIOD, Index) != -1;
     }
 
     private static void addLBCodeAfterPeriod(StringBuilder sb, int periodIndex) {

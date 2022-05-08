@@ -46,9 +46,9 @@ public class StringsJaHyphenationSplitter {
         String beforLengthText = text.substring(FIRST_INDEX, lineLength);
         String afterLengthText = text.substring(lineLength, text.length());
         while (topIsPunctuation(afterLengthText)) {
-            String topString = afterLengthText.substring(FIRST_INDEX, 1);
+            String topString = getFirstString(afterLengthText);
             StringBuilder buildText = new StringBuilder(afterLengthText);
-            buildText.delete(FIRST_INDEX, 1);
+            deleteFirstString(buildText);
             afterLengthText = buildText.toString();
             beforLengthText = beforLengthText + topString;
         }
@@ -56,5 +56,13 @@ public class StringsJaHyphenationSplitter {
         if (!Tools.isBlank(afterLengthText)) {
             lines.add(listIndex + 1, afterLengthText);
         }
+    }
+
+    private static String getFirstString(String text){
+        return text.substring(FIRST_INDEX, 1);
+    }
+
+    private static void deleteFirstString(StringBuilder sb){
+        sb.delete(FIRST_INDEX, 1);
     }
 }

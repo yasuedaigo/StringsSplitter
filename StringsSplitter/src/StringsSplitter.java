@@ -20,16 +20,16 @@ public class StringsSplitter {
 
     public static List<String> splitWithLineBreakCode(String text) {
         List<String> lines = new ArrayList<>();
-        StringBuilder buildedText = new StringBuilder(text);
+        StringBuilder buildText = new StringBuilder(text);
         int listIndex = FIRST_INDEX;
         lines.add(listIndex, BLANK);
-        while (!isFinish(buildedText)) {
-            if (isLBCodeFarst(buildedText)) {
+        while (!isFinish(buildText)) {
+            if (isLBCodeFarst(buildText)) {
                 listIndex++;
                 lines.add(listIndex, BLANK);
-                deleteFarstLBCode(buildedText);
+                deleteFarstLBCode(buildText);
             }
-            String lineText = cutLineBeforLBCode(buildedText);
+            String lineText = cutLineBeforLBCode(buildText);
             lines.set(listIndex, lineText);
         }
         return lines;
@@ -48,10 +48,7 @@ public class StringsSplitter {
     }
 
     private static boolean isLBCodeFarst(StringBuilder sb) {
-        if (Tools.getIndexOfCode(sb, LB_CODE) == FIRST_INDEX) {
-            return true;
-        }
-        return false;
+        return Tools.getIndexOfText(sb, LB_CODE) == FIRST_INDEX;
     }
 
     private static String cutLineBeforLBCode(StringBuilder sb) {
@@ -62,7 +59,6 @@ public class StringsSplitter {
         }
         lineText = sb.substring(FIRST_INDEX, startIndex);
         sb.delete(FIRST_INDEX, startIndex);
-
         return lineText;
     }
 

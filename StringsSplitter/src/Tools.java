@@ -1,29 +1,22 @@
 public class Tools {
 
     private static final int BLANK = 0;
-    private static final int NO_CONTAIN_CODE = -1;
 
     public static boolean isBlank(StringBuilder sb) {
-        if (sb.length() == BLANK) {
-            return true;
-        }
-        return false;
+        return sb.length() == BLANK;
     }
 
     public static boolean isBlank(String text) {
         StringBuilder sb = new StringBuilder(text);
-        return Tools.isBlank(sb);
+        return isBlank(sb);
     }
 
-    public static boolean isContain(StringBuilder sb, String code) {
-        if (getIndexOfCode(sb, code) == NO_CONTAIN_CODE) {
-            return false;
-        }
-        return true;
+    public static boolean isContain(StringBuilder sb, String text) {
+        return getIndexOfText(sb, text) != -1;
     }
 
-    public static int getIndexOfCode(StringBuilder sb, String code) {
-        return sb.indexOf(code);
+    public static int getIndexOfText(StringBuilder sb, String text) {
+        return sb.indexOf(text);
     }
 
 }
